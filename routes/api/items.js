@@ -32,4 +32,17 @@ router.post('/', (req, res) => {
   .then(item => res.json(item));
 })
 
+//@route  DELETE api/items/:id
+//@desc   Delete an item
+//@access Public (since we won't have any authorizations)
+
+router.delete('/:id', (req, res) => {
+  Item.findById(req.params.id)
+    .then(item => item.remove()
+      .then( () => res.json({deletedItem: true}))
+    )
+    .catch(error => res.status(404).json({deletedItem: false})
+    )
+})
+
 module.exports = router;
