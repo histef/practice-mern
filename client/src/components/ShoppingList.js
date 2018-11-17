@@ -37,7 +37,17 @@ class ShoppingList extends Component {
             {items.map( ({id, name}) => (
               <CSSTransition key={id} timeout={500} classNames="fade">
                 <ListGroupItem>
-                   {name}
+                <Button
+                  className="remove-btn"
+                  color="danger"
+                  size="sm"
+                  onClick={()=>{
+                    this.setState(state =>({
+                      items: state.items.filter(item => item.id !== id )
+                    }))
+                  }}
+                >&times;</Button>
+                  {name}
                 </ListGroupItem>
               </CSSTransition>
           ))}
