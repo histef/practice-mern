@@ -8,6 +8,7 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
+import PropTypes from "prop-types";
 
   class AppNavbar extends Component {
     state = {
@@ -40,6 +41,12 @@ import {
       </div>
     );
   }
+}
+
+AppNavbar.propTypes = {
+  dark: PropTypes.bool,
+  color: PropTypes.string,
+  expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 }
 
 export default AppNavbar;
