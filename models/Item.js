@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//create schema
+//create schema for every item that gets stored in db
 const ItemSchema = new Schema({
   name: {
     type: String,
