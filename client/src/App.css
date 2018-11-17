@@ -1,3 +1,30 @@
 .App {
   text-align: center;
 }
+
+.remove-btn { /*more space*/
+  margin-left: 0.5rem;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fade-enter { /*starts at barely visible*/
+  opacity: .01;
+}
+
+.fade-enter-active { /*transition to visible*/
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 1s ease-in;
+}
