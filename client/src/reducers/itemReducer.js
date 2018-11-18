@@ -20,7 +20,11 @@ const initialState = {
         return {
           ...state,
         }
-      // case ADD_ITEMS
+      case ADD_ITEMS:
+        return { //makes copy of state
+          ...state,
+          items: state.items.concat(action.payload)
+        }
       case DELETE_ITEM:
         return {
           ...state,
@@ -30,3 +34,7 @@ const initialState = {
         return state
     }
   }
+
+//different ways to create state copy
+//items: [...state.items, action.payload]
+//items: Object.assign({}, state, {item: action.payload})

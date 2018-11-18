@@ -11,7 +11,7 @@ export const getItems = () => {
   }
 }
 
-export const addItems = text => {
+export const addItem = text => {
   return {
     type: ADD_ITEMS,
     payload: text
