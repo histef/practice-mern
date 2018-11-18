@@ -36,6 +36,7 @@ router.post('/', (req, res) => {
 //@desc   Delete an item
 //@access Public (since we won't have any authorizations)
 
+//when using the fetch/axios call omit the : in the url, and use string literal around id. so, axios.delete(`url/${id}`, id)
 router.delete('/:id', (req, res) => {
   Item.findById(req.params.id)
     .then(item => item.remove()
