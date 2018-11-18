@@ -1,24 +1,27 @@
-import uuid from 'uuid';
-
 import {
   GET_ITEMS,
   ADD_ITEMS,
-  DELETE_ITEM
+  DELETE_ITEM,
+  ITEMS_LOADING
 } from '../actions/types';
 
 const initialState = {
-    items: [
-      {id: uuid(), name: 'Raspberries'},
-      {id: uuid(), name: 'Milk'},
-      {id: uuid(), name: 'cacao'}
-    ]
+    items: [],
+    loading: false
   }
 
   export default function(state=initialState, action){
     switch(action.type) {
+      case ITEMS_LOADING:
+        return {
+          ...state,
+          loading: true
+        }
       case GET_ITEMS:
         return {
           ...state,
+          items: action.payload,
+          loading: false
         }
       case ADD_ITEMS:
         return { //makes copy of state
