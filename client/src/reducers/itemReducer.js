@@ -3,7 +3,7 @@ import uuid from 'uuid';
 import {
   GET_ITEMS,
   ADD_ITEMS,
-  DELETE_ITEMS
+  DELETE_ITEM
 } from '../actions/types';
 
 const initialState = {
@@ -21,8 +21,12 @@ const initialState = {
           ...state,
         }
       // case ADD_ITEMS
-      // case DELETE_ITEMS
+      case DELETE_ITEM:
+        return {
+          ...state,
+          items: state.items.filter(item => item.id !== action.payload)
+        }
       default:
-      return state
+        return state
     }
   }
