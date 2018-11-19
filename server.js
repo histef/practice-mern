@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const db = require('./config/keys').mongoURI;
+const path = require('path'); //core node module
+
 const items = require('./routes/api/items');
 
 const app = express();
@@ -17,6 +19,17 @@ mongoose
 
 //use routes for api/items/* to go to this file
 app.use('/api/items', items);
+
+//serve static assets(build folder) if in production
+if(process.env.NODE_ENV === 'production'){
+  //Set static folder will load index.html in client folder
+  app.use(express.static('client/build'));
+
+  //any request that isn't /api/items, load the index.html in build/client
+  app.get('*', (req, resp) =>{
+    resp.sendFile(path.resolve(_dirname, 'client', 'build, 'index.html'));
+  })
+}
 
 //now need to run server. if deploying to heroku:
 const port = process.env.PORT || 5000;
