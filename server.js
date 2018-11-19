@@ -26,8 +26,8 @@ if(process.env.NODE_ENV === 'production'){
   app.use(express.static('client/build'));
 
   //any request that isn't /api/items, load the index.html in build/client
-  app.get('*', (req, resp) =>{
-    resp.sendFile(path.resolve(_dirname, 'client', 'build, 'index.html'));
+  app.get('*', (req, resp) => {
+    resp.sendFile(path.resolve(__dirname, 'client', 'build, 'index.html'));
   })
 }
 
