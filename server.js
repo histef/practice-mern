@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 // const db = require('./config/keys').mongoURI;
 //connect to mongo using mongoose. promise-based
 mongoose
-  .connect(process.env.db)
+  .connect(process.env['db'])
   .then( () => console.log('mongoDb connected'))
   .catch(error => console.log('mongoDb connection' + error))
 
