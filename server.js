@@ -34,6 +34,8 @@ if(process.env.NODE_ENV === 'production'){
 //now need to run server. if deploying to heroku:
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`server started on port ${port}`))
+app.listen(port, () => {
+  console.log(`server started on port ${port}`), this.address().port, app.settings.env
+})
 
 //should be able to run now. use 'npm run server'
