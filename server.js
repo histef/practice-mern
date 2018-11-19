@@ -28,6 +28,7 @@ if(process.env.NODE_ENV === 'production'){
   //any request that isn't /api/items, load the index.html in build/client
   app.get('*', (req, resp) => {
     resp.sendFile(path.resolve(__dirname, 'client', 'build, 'index.html'));
+      //note __ - two _'s
   })
 }
 
