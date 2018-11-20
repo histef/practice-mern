@@ -13,7 +13,6 @@ class App extends Component {
         <AppNavbar />
         <ItemModal />
         <ShoppingList />
-        <h1>yo</h1>
       </div>
     );
   }
